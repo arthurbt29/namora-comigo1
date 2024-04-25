@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quer namorar comigo?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+ 
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+  
+    h1 {
+      font-weight: 300;
+    }
+  
+    button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: "Roboto", sans-serif;
+      border: transparent;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px;
+    }
+  
+    button:nth-child(1) {
+      background-color: red;
+    }
+
+    button#simButton {
+      background-color: green;
+    }
+  
+    div.buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    @media screen and (min-width: 600px) {
+      button {
+        padding: 15px 30px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>QUER NAMORAR CMG MARANINHA?</h1>
+    <div class='buttons'>
+      <button id="naoButton">Não</button>
+      <button id="simButton" style="display: none;">Sim mo amozinho❤️</button>
+    </div>
+  </div>
+  <script>
+    var moveButton = document.querySelector("#naoButton");
+    var simButton = document.querySelector("#simButton");
+    var clickCount = 0;
+
+    // Lista de respostas negativas
+    var negativeResponses = ["Não", "Não quero menino", "Claro que não muquifo", "não espancado", "não menino!"];
+
+    moveButton.addEventListener("click", function () {
+      clickCount++;
+      if (clickCount >= 10) {
+        simButton.style.display = "block";
+      }
+      // Movimento de fugir
+      var vertical = Math.random() < 0.5 ? Math.floor(Math.random() * 100) : Math.floor(Math.random() * 300) + 500;
+      var horizontal = Math.random() < 0.5 ? Math.floor(Math.random() * 100) : Math.floor(Math.random() * 300) + 500;
+      moveButton.style.position = "absolute";
+      moveButton.style.left = vertical + "px";
+      moveButton.style.top = horizontal + "px";
+
+      // Escolher uma resposta negativa aleatoriamente e exibi-la no botão
+      var randomIndex = Math.floor(Math.random() * negativeResponses.length);
+      moveButton.textContent = negativeResponses[randomIndex];
+    });
+
+    simButton.addEventListener("click", function () {
+      window.location.href = "https://www.youtube.com/watch?v=rTsbSY04s1Y";
+    });
+  </script>
+</body>
+</html>
